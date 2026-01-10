@@ -1,0 +1,39 @@
+<% if @profile.errors.any? %>
+  <ul>
+    <% @profile.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @profile, url: @profile.persisted? ? profile_path(@profile) : profiles_path, local: true do |f| %>
+    <div>
+    <% if @profile.avatar.attached? %>
+      <%= image_tag @profile.avatar,  class: "profile-avatar-form" %>
+    <% else %>
+      <%= image_tag "default_cat_blue.png", class: "profile-avatar-form" %>
+    <% end %>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div>
+    <%= f.label :profile_name, "プロフィール名" %>
+    <%= f.text_field :profile_name %>
+  </div>
+
+  <div>
+    <%= f.label :introduction, "自己紹介" %>
+    <%= f.text_area :introduction %>
+  </div>
+
+  <div>
+    <%= f.label :cat_count, "猫の数" %>
+    <%= f.number_field :cat_count,min:0 %>
+  </div>
+
+  <div>
+  <%= f.submit "更新する" %>
+  <%= link_to "戻る", account_path %>
+  </div>
+
+<% end %>

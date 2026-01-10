@@ -13,11 +13,58 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+  
+  <body>
+    <!-- ヘッダー -->
+    <header style="padding: 10px; border-bottom: 1px solid #ccc; display:flex; justify-content: space-between; align-items:center;">
+  <!-- 左側：タイトル -->
+  <h1 style="margin:0;">
+    <%= link_to "キャットlog", root_path %>
+  </h1>
+
+  <!-- 右側：ログイン / 投稿 / プロフィール / ログアウト -->
+  <nav style="display:flex; align-items:center; gap:10px;">
+    <% if user_signed_in? %>
+
+      <!-- ユーザー名表示 -->
+      <span><%= current_user.login_name %></span>
+
+  <!-- プロフィールアイコン -->
+  <div style="margin-left:10px;">
+    <% if current_user.profile&.avatar&.attached? %>
+      <%= link_to account_path do %>
+        <%= image_tag url_for(current_user.profile.avatar), class: "header-profile-icon", style: "width:40px; height:40px; border-radius:50%;" %>
+      <% end %>
+    <% else %>
+      <%= link_to account_path do %>
+        <%= image_tag "default_cat_blue.png", class: "header-profile-icon", style: "width:40px; height:40px; border-radius:50%;" %>
+      <% end %>
+    <% end %>
+  </div>
+
+      <!-- 投稿ボタン -->
+      <%= link_to "投稿する", new_post_path, style: "margin-left:10px;" %>
+
+      <!-- ログアウトボタン -->
+      <%= button_to "ログアウト", destroy_user_session_path, method: :delete, style: "margin-left:10px;" %>
+
+    <% else %>
+      <!-- ログイン / 新規登録 -->
+      <%= link_to "ログイン", new_user_session_path, style: "margin-right: 10px;" %>
+      <%= link_to "新規登録", new_user_registration_path %>
+    <% end %>
+  </nav>
+</header>
+
+    <!-- ページごとのコンテンツ -->
+    <main style="padding: 10px;">
+      <%= yield %>
+    </main>
   </body>
 </html>

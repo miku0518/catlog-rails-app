@@ -1,0 +1,39 @@
+<h1>投稿を編集</h1>
+
+<%= render "error_messages", object: @post %>
+
+<%= form_with model: @post, local: true do |f| %>
+
+  <% if @post.image.attached? %>
+    <div>
+      <p>現在の画像</p>
+      <%= image_tag @post.image, style: "max-width: 300px;" %>
+    <div>
+
+      <%= check_box_tag :remove_image, "1" %>
+      <%= label_tag :remove_image, "画像を削除する" %>
+    </div>
+  </div>
+<% end %>
+
+  <div>
+    <%= f.label :image, "画像を変更" %><br>
+    <%= f.file_field :image %>
+  </div>
+
+  <div>
+    <%= f.label :title, "タイトル" %><br>
+    <%= f.text_field :title, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :body, "本文" %><br>
+    <%= f.text_area :body %>
+  </div>
+
+  <div>
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>
+
+<%= link_to "← 詳細に戻る", @post %>
