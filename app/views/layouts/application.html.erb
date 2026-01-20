@@ -4,6 +4,7 @@
     <title><%= content_for(:title) || "Cat Log Rails" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> #吹き出し用
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,19 +15,20 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo
+    -track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
   
   <body>
     <!-- ヘッダー -->
     <header style="padding: 10px; border-bottom: 1px solid #ccc; display:flex; justify-content: space-between; align-items:center;">
   <!-- 左側：タイトル -->
-  <h1 style="margin:0;">
-    <%= link_to "キャットlog", root_path %>
-  </h1>
+    <h1 class="site-title">
+      <%= link_to root_path do %>
+      <%= image_tag "logo.png", alt: "キャットlog", class: "site-logo" %>
+    <% end %>
+    </h1>
 
   <!-- 右側：ログイン / 投稿 / プロフィール / ログアウト -->
   <nav style="display:flex; align-items:center; gap:10px;">
@@ -63,7 +65,7 @@
 </header>
 
     <!-- ページごとのコンテンツ -->
-    <main style="padding: 10px;">
+    <main class="content">
       <%= yield %>
     </main>
   </body>
