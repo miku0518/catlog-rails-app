@@ -1,23 +1,46 @@
-<p>最新の投稿</p>
+<div class="container">
+  <div class="top-card">
+    <span class="badge">
+      ～猫好きのコミュニティへようこそ～
+    </span>
 
-<% @posts.each do |post| %>
-  <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
-    <div>
-    <% if post.image.attached? %>
-      <%= image_tag post.image, style: "width: 100px;" %>
-    <% end %>
-    <h2><%= post.title %></h2>
-    <p>投稿者：<%= post.user.login_name %></p>
-    <h3>コメント <%= post.comments.count %> </h3>
-    <%= post.created_at.strftime("%Y/%m/%d %H:%M") %>
-    <br>
-    <%= link_to "続きを読む", post_path(post),
-      class: "btn btn-outline btn-info" %>
+    <p class="text">
+      キャットlogは猫好きのための掲示板アプリです。<br />
+      あなたの愛猫のかわいい瞬間や、悩みを共有しましょう。
+    </p>
   </div>
-<% end %>
+</div>
 
-<%= link_to "投稿一覧を見る", posts_path %>
-<p class="text-red-500 text-2xl">テスト</p>
-<p class="text-red-500 text-2xl font-bold">TAILWIND TEST</p>
-<p class="text-red-500 text-2xl font-bold">TAILWIND TEST</p>
-<span class="loading loading-spinner loading-xl"></span>
+<p class="headline">最新の投稿</p>
+<div class="post-list flex flex-wrap justify-center">
+  <% @posts.each do |post| %>
+    <div class="card bg-white">
+      
+      <!-- 画像部分の枠 -->
+      <div class="post-image-wrapper">
+        <% if post.image.attached? %>
+          <%= image_tag post.image, class: "post-image", alt: post.title %>
+        <% else %>
+          <%= image_tag "no_image.png", class: "post-image", alt: "No image" %>
+        <% end %>
+      </div>
+
+      <!-- カード本文 -->
+      <div class="card-body">
+        <h2 class="card-title"><%= post.title %></h2>
+        <p>投稿者：<%= post.user.login_name %></p>
+        <p><span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:4px;">
+          chat_bubble
+        </span>
+       <%= post.comments.count %>
+       </p>
+        <p><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+        <div class="card-actions justify-end">
+          <%= link_to "続きを読む", post_path(post), class: "btn btn-outline btn-info" %>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+
+  

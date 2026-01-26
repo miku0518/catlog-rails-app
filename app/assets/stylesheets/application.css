@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
+.site-title a {
+  display: inline-block;              /* 必須 */
+  transition: transform 0.3s ease;
+}
+
+.site-title a:hover {
+  transform: scale(1.05);
+}
 
 .profile-avatar {
   width: 100px;       
@@ -29,8 +37,19 @@
   object-fit: cover;
 }
 
+.site-header {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
 .profile-avatar-form {
-  width: 80px;
+  width: 50px;
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
@@ -38,3 +57,120 @@
   margin-bottom: 10px;
 }
 
+
+
+/* 背景部分 */
+.container {
+  padding: 80px; /* 内側の余白 */
+}
+
+/* カード本体 */
+.top-card {
+  background-color: rgba(255, 255, 255, 0.233); /* 半透明白 */
+  backdrop-filter: blur(10px); /* 背景をぼかす */
+  border-radius: 1rem; /* 角丸 */
+  padding: 50px; /* 内側の余白 */
+  max-width: 900px; /* 横幅制限 */
+  margin: 20px auto; /* 上下余白 + 中央配置 */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* 半透明の線 */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* 影 */
+}
+
+/* バッジ */
+.badge {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 4px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 9999px; /* pill型 */
+  background-color: rgba(19, 149, 236, 0.2);
+  color: rgb(30, 117, 218);
+}
+
+/* 文章 */
+.text {
+  color: rgba(22, 151, 231, 0.9);
+  line-height: 1.6;
+}
+
+/* 背景画像 */
+main.content {
+  background-image: url('/assets/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 40px;
+  min-height: calc(100vh - 60px);
+}
+
+/* タイトル */
+.site-logo {
+  width: 220px;
+  height: auto;
+  padding: 5px 18px;
+  border-radius: 9999px;
+  border: 2px solid #7ec9f5;
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,0.8),
+    0 4px 10px rgba(0,0,0,0.15);
+}
+
+
+/* 投稿カード*/
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px; /* カード間の余白 */
+  padding: 0 1rem;
+}
+
+.post-list .card {
+  background-color: #fff;
+  border: 2px solid #bfebf1;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  overflow: hidden;
+  width: 100%;
+  max-width: 280px;  /* カードの幅を調整したい時 */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.post-list .card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.post-image-wrapper {
+  width: 100%;
+  height: 270px;          /* 枠の高さ固定 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: white;
+  padding-top: 10px;
+}
+
+.post-image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;  
+}
+
+.headline {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #56b8db;
+  margin-bottom: 1rem;
+
+  /* 下線風アクセント */
+  border-bottom: 3px solid #56b8db;
+  display: inline-block;
+  padding-bottom: 4px;
+}
