@@ -170,7 +170,82 @@ main.content {
   margin-bottom: 1rem;
 
   /* 下線風アクセント */
-  border-bottom: 3px solid #56b8db;
+  border-bottom: 3px solid #95aeb8;
   display: inline-block;
   padding-bottom: 4px;
+}
+
+/* 画面全体の中央寄せ */
+.signup-container {
+  display: flex;
+  justify-content: center; /* 横方向中央 */
+  align-items: center;     /* 縦方向中央 */
+  min-height: 70vh;       /* 画面全体の高さ */
+  padding: 20px;
+}
+
+/* カード風デザイン */
+.signup-card {
+  background-color: #d0ebf6;  /* 白色 */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;       /* カード幅の最大値 */
+}
+
+.custom-lightblue-btn {
+  background-color: #78c5df; /* 薄い水色 */
+  color: white;              /* 文字色 */
+  border: 1px solid #ADD8E6; /* 枠線 */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;        /* 角丸 */
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.custom-lightblue-btn:hover {
+  background-color: #87CEFA; /* ホバー時に少し濃い水色 */
+  border-color: #87CEFA;
+}
+
+.lightblue-link {
+  color: #00BFFF;           /* 水色 */
+  text-decoration: underline; /* 下線 */
+  display: inline-block;
+  margin-top: 10px;  
+}
+
+.lightblue-link:hover {
+  color: #1E90FF;            /* ホバー時に少し濃くする */
+}
+
+
+/* 共通リンクスタイル */
+.header-link {
+  text-decoration: none;     /* 下線を消す */
+  color: #00BFFF;            /* 水色 */
+  padding: 6px 12px;
+  border-radius: 4px;        /* 角丸 */
+  transition: background-color 0.3s;
+}
+
+/* ホバー時 */
+.header-link:hover {
+  background-color: #87CEFA; /* 薄い水色に変化 */
+  color: white;
+}
+
+/* ログインリンク個別 */
+.login-link {
+  margin-right: 10px;        /* 右の間隔 */
+  border: 1px solid #00BFFF; /* 枠線 */
+}
+
+/* 新規登録リンク個別 */
+.signup-link {
+  background-color: #00BFFF; /* 水色ボタン風 */
+  color: white;
+  border: none;
 }
