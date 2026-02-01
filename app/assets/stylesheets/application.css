@@ -295,3 +295,47 @@ main.content {
 .sign-up-link:hover {
   color: #1E90FF;
 }
+
+.index-post-list .card {
+  min-height: 470px;
+}
+
+.index-post-list .post-card {
+  padding-left: 1.5rem;  /* 左の余白を増やすことで文字を右に寄せる */
+  padding-top: 25px;
+}
+
+/* 投稿するボタン */
+.post-action {
+  background-color: #53b6e0; /* 明るい水色 */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: bold;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.post-action:hover {
+  background-color: #8cc7e2;
+}
+
+/* ログアウトボタン */
+.log-out-action {
+  background-color: white;        /* 背景は白 */
+  color: #0284c7;                 /* 濃い青文字 */
+  border: 2px solid #0284c7;      /* 枠をつける */
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.log-out-action:hover {
+  background-color: #0284c7;      /* ホバーで塗りつぶし */
+  color: white;                   /* 文字色を白に */
+}
