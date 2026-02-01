@@ -4,7 +4,7 @@
     <title><%= content_for(:title) || "Cat Log Rails" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> #吹き出し用
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -58,8 +58,8 @@
 
     <% else %>
       <!-- ログイン / 新規登録 -->
-      <%= link_to "ログイン", new_user_session_path, style: "margin-right: 10px;" %>
-      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログイン", new_user_session_path, class: "header-link login-link"  %>
+      <%= link_to "新規登録", new_user_registration_path,  class: "header-link signup-link" %>
     <% end %>
   </nav>
 </header>
