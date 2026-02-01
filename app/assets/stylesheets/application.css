@@ -194,7 +194,7 @@ main.content {
   max-width: 400px;       /* カード幅の最大値 */
 }
 
-.custom-lightblue-btn {
+.signup-botan {
   background-color: #78c5df; /* 薄い水色 */
   color: white;              /* 文字色 */
   border: 1px solid #ADD8E6; /* 枠線 */
@@ -205,7 +205,7 @@ main.content {
   margin-top: 10px;
 }
 
-.custom-lightblue-btn:hover {
+.signup-botan:hover {
   background-color: #87CEFA; /* ホバー時に少し濃い水色 */
   border-color: #87CEFA;
 }
@@ -248,4 +248,50 @@ main.content {
   background-color: #00BFFF; /* 水色ボタン風 */
   color: white;
   border: none;
+}
+
+/* 画面全体の中央寄せ */
+.login-container {
+  display: flex;
+  justify-content: center; /* 横方向中央 */
+  align-items: center;     /* 縦方向中央 */
+  min-height: 70vh;       /* 画面全体の高さ */
+  padding: 20px;
+}
+
+/* カード風デザイン */
+.login-card {
+  background-color: #d0ebf6;  /* 白色 */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;       /* カード幅の最大値 */
+}
+
+.login-botan {
+  background-color: #78c5df; /* 薄い水色 */
+  color: white;              /* 文字色 */
+  border: 1px solid #ADD8E6; /* 枠線 */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;        /* 角丸 */
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.login-botan:hover {
+  background-color: #87CEFA; /* ホバー時に少し濃い水色 */
+  border-color: #87CEFA;
+}
+
+.sign-up-link {
+  color: #00BFFF;           /* 水色 */
+  text-decoration: underline; /* 下線 */
+  display: inline-block;
+  margin-top: 10px;  
+}
+
+.sign-up-link:hover {
+  color: #1E90FF;
 }
