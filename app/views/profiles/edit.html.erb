@@ -1,39 +1,75 @@
-<% if @profile.errors.any? %>
-  <ul>
-    <% @profile.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+<%# フラッシュメッセージ（通知） %>
+<% flash.each do |message_type, message| %>
+  <div class="flash-message <%= message_type %>">
+    <%= message %>
+  </div>
 <% end %>
 
-<%= form_with model: @profile, url: @profile.persisted? ? profile_path(@profile) : profiles_path, local: true do |f| %>
-    <div>
-    <% if @profile.avatar.attached? %>
-      <%= image_tag @profile.avatar,  class: "profile-avatar-form" %>
-    <% else %>
-      <%= image_tag "default_cat_blue.png", class: "profile-avatar-form" %>
-    <% end %>
-    <%= f.file_field :avatar %>
-  </div>
+<div class="profile-container">
+  <div class="profile-card">
+    <%# ヘッダー %>
+    <div class="profile-edit-header">
+      <h2>プロフィール設定</h2>
+    </div>
 
-  <div>
-    <%= f.label :profile_name, "プロフィール名" %>
-    <%= f.text_field :profile_name %>
-  </div>
+    <div class="profile-body">
+      <%# エラーメッセージ表示エリア %>
+      <% if @profile.errors.any? %>
+        <div class="error-messages-container">
+          <ul class="error-messages-list">
+            <% @profile.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div>
-    <%= f.label :introduction, "自己紹介" %>
-    <%= f.text_area :introduction %>
-  </div>
+      <%# 編集フォーム %>
+      <%= form_with model: @profile, url: @profile.persisted? ? profile_path(@profile) : profiles_path, local: true, class: "profile-form" do |f| %>
+        
+        <%# アバター編集 %>
+        <div class="avatar-upload-section">
+          <div class="avatar-preview">
+            <% if @profile.avatar.attached? %>
+              <%= image_tag @profile.avatar, class: "profile-avatar-form" %>
+            <% else %>
+              <%= image_tag "default_cat_blue.png", class: "profile-avatar-form" %>
+            <% end %>
+          </div>
+          <div class="file-input-wrapper">
+            <%= f.label :avatar, "写真を変更する", class: "file-label" %>
+            <%= f.file_field :avatar, class: "file-field" %>
+          </div>
+        </div>
 
-  <div>
-    <%= f.label :cat_count, "猫の数" %>
-    <%= f.number_field :cat_count,min:0 %>
-  </div>
+        <%# 入力フィールド群 %>
+        <div class="form-group">
+          <%= f.label :profile_name, "プロフィール名" %>
+          <%= f.text_field :profile_name, placeholder: "お名前を入力", class: "form-input" %>
+        </div>
 
-  <div>
-  <%= f.submit "更新する" %>
-  <%= link_to "戻る", account_path %>
-  </div>
+        <div class="form-group">
+          <%= f.label :introduction, "自己紹介" %>
+          <%= f.text_area :introduction, rows: 4, placeholder: "猫との暮らしについて教えてください", class: "form-input" %>
+        </div>
 
-<% end %>
+        <div class="form-group">
+          <%= f.label :cat_count, "一緒に暮らしている猫の数" %>
+          <div class="number-input-wrapper">
+            <%= f.number_field :cat_count, min: 0, class: "form-input number-field" %>
+            <span class="unit">匹</span>
+          </div>
+        </div>
+
+        <%# ボタン・リンク類 %>
+        <div class="actions">
+          <%= f.submit "更新する", class: "btn-primary" %>
+          <div class="account-back-link">
+            <%= link_to "マイページに戻る", account_path %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

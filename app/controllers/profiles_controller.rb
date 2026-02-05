@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_user.build_profile(profile_params)
     if @profile.save
-      redirect_to edit_profile_path(@profile), notice: "プロフィールを作成しました"
+      redirect_to edit_profile_path(@profile)
     else
       render :edit
     end
@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       redirect_to edit_profile_path(@profile), notice: 'プロフィールを更新しました'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

@@ -22,13 +22,6 @@
   transform: scale(1.05);
 }
 
-.profile-avatar {
-  width: 100px;       
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 /* header */
 .header-profile-icon {
   width: 40px;
@@ -36,27 +29,6 @@
   border-radius: 50%;
   object-fit: cover;
 }
-
-.site-header {
-  background-color: #ffffff;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 10;
-}
-
-.profile-avatar-form {
-  width: 50px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
 
 
 /* 背景部分 */
@@ -339,3 +311,431 @@ main.content {
   background-color: #0284c7;      /* ホバーで塗りつぶし */
   color: white;                   /* 文字色を白に */
 }
+
+.account-edit-btn {
+  background-color: #60b1fd;
+  color: white;
+  border: none;              /* 枠線を消す場合 */
+  border-radius: 6px;        /* 角丸 */
+  padding: 8px 16px;         /* ボタン内の余白 */
+  font-weight: bold;
+   margin-top: 20px;
+}
+
+.account-edit-btn:hover {
+  background-color: #65a7dd; /* ホバー時の色 */
+}
+
+.account-card {
+  background-color:white;
+  border-radius: 6px;
+  width: 400px;
+  margin-left: 150px;
+  min-height: 250px;
+  box-shadow: 0 8px 16px rgba(68, 157, 216, 0.2);
+}
+
+.account-profile-title {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  color: #308af2;
+  border-bottom: 10px double #60b1fd;
+  width: 390px;
+  display: block;
+  margin-left: 150px
+}
+
+.card-title {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.account-info {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.account-profile{
+  background-color:white;
+  border-radius: 6px;
+  width: 500px;
+  margin-left: 150px;
+  min-height: 350px;
+  box-shadow: 0 8px 16px rgba(68, 157, 216, 0.2);
+}
+.profile-content {
+  display: flex;
+  justify-content: space-between; /* 左右に分ける */
+  align-items: flex-start;       /* 上揃え */
+  gap: 20px;                     /* 左右の間隔 */
+}
+
+.profile-avatar {
+  width: 180px;       
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.card-title-profile {
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 30px;
+  margin-top: 50px;
+  text-align: left;
+  padding-left: 20px; 
+}
+
+.profile-text {
+  margin-right: 50px;
+  margin-top: 55px;
+}
+
+.card-actions-profile {
+  margin-top: 40px;
+  margin-left: 30px;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;           /* 縦中央に揃える */
+  gap: 30px;   
+}
+
+/* 全体の背景設定 */
+.devise-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+}
+
+/* カードのデザイン */
+.devise-card {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 160, 255, 0.1);
+  overflow: hidden;
+}
+
+/* ヘッダー */
+.devise-header {
+  background-color: #5ebceb; /* 鮮やかな水色 */
+  color: #ffffff;
+  padding: 24px;
+  text-align: center;
+}
+
+.devise-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+/* ボディ */
+.devise-body {
+  padding: 30px;
+}
+
+/* 各入力グループ */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.label-hint {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #888;
+}
+
+.help-text {
+  font-size: 0.75rem;
+  color: #00a8ff;
+  margin-top: 4px;
+}
+
+/* 入力フィールド */
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e1f0f7;
+  border-radius: 8px;
+  box-sizing: border-box; /* ズレ防止 */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #00a8ff;
+  box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.15);
+}
+
+/* 現在のパスワード入力欄（強調） */
+.highlight-box {
+  background-color: #f0faff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px dashed #00a8ff;
+}
+
+/* 更新ボタン */
+.btn-primary {
+  width: 100%;
+  background-color: #00a8ff;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background-color: #008ecc;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* フッター（削除・戻る） */
+.devise-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.delete-section p {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  text-decoration: underline;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.account-back-link {
+  margin-top: 15px;
+}
+
+.account-back-link a {
+  color: #00a8ff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+
+/* エラーメッセージ（Devise標準用） */
+#error_explanation {
+  background-color: #fff0f0;
+  color: #ff4d4d;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+/* 全体コンテナ */
+.profile-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: sans-serif;
+}
+
+/* カード */
+.profile-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 160, 255, 0.08);
+  overflow: hidden;
+}
+
+/* ヘッダー */
+.profile-edit-header {
+  background-color: #5ebceb;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+}
+
+/* ボディ */
+.profile-body {
+  padding: 30px;
+}
+
+/* アバター部分 */
+.avatar-upload-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-avatar-form {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* 正円にする */
+  object-fit: cover;
+  border: 4px solid #e1f0f7;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+.file-label {
+  display: inline-block;
+  background: #e1f0f7;
+  color: #00a8ff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.file-label:hover {
+  background: #00a8ff;
+  color: #fff;
+}
+
+.file-field {
+  display: none; /* 標準の不格好なボタンを隠す */
+}
+
+/* 共通入力欄 */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e1f0f7;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #00a8ff;
+  background-color: #f0faff;
+}
+
+/* 数字入力の調整 */
+.number-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.number-field {
+  width: 100px;
+  text-align: center;
+}
+
+.unit {
+  color: #888;
+  font-weight: bold;
+}
+
+/* ボタンとリンク */
+.btn-primary {
+  width: 100%;
+  background-color: #00a8ff;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #008ecc;
+  margin-bottom: 20px;
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #008ecc;
+}
+
+/* エラーメッセージ */
+.error-messages {
+  background-color: #fff0f0;
+  border-left: 4px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+}
+
+.error-messages ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.avatar-preview {
+  margin-left: 160px;
+}
+
+.flash-message {
+  width: 100%;
+  max-width: 500px;
+  margin: 15px auto;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.flash-message.notice { background: #e3f2fd; color: #1976d2; border: 1px solid #bbdefb; }
+.flash-message.alert { background: #ffebee; color: #d32f2f; border: 1px solid #ffcdd2; }
