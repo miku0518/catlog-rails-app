@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      profile: プロフィール
+
+    attributes:
+      profile:
+        profile_name: プロフィール名
+        introduction: 自己紹介
+        cat_count: 猫の数
+    errors:
+      models:
+        profile:
+          attributes:
+            profile_name:
+              blank: を入力してください
+              too_long: は20文字以内で入力してください
+            introduction:
+              too_long: は200文字以内で入力してください
+            cat_count:
+              not_a_number: は数値で入力してください
+              greater_than_or_equal_to: は0以上で入力してください
+              not_an_integer: は整数で入力してください
