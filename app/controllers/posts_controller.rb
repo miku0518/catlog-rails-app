@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if params[:remove_image] == "1"
+    if params[:remove_image]
       @post.image.purge
     end
 
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path,notice: "投稿を削除しました"
+    redirect_to posts_path, alert: "投稿を削除しました",status: :see_other
   end
 
   private
