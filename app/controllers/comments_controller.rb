@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if@comment.save #これでコメントがDBに保存される
-      redirect_to @post, notice:"コメントを投稿しました"
+      redirect_to @post
     else
-      redirect_to @post, alert:"コメントを入力してください"
+      redirect_to @post
     end
   end
 
@@ -18,9 +18,9 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
     if @comment.user == current_user
       @comment.destroy
-      redirect_to @post, notice: "コメントを削除しました"
+      redirect_to @post, notice: "コメントを削除しました", status: :see_other #処理が終わったから、指定したページを新しく読み込み直してねと合図
     else
-      redirect_to @post, alert: "削除できません"
+      redirect_to @post, alert: "削除できません",status: :see_other
     end
   end
 

@@ -294,6 +294,11 @@ main.content {
   background-color: #8cc7e2;
 }
 
+.post-actions {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 /* ログアウトボタン */
 .log-out-action {
   background-color: white;        /* 背景は白 */
@@ -739,3 +744,151 @@ main.content {
 
 .flash-message.notice { background: #e3f2fd; color: #1976d2; border: 1px solid #bbdefb; }
 .flash-message.alert { background: #ffebee; color: #d32f2f; border: 1px solid #ffcdd2; }
+
+/* 投稿詳細全体のコンテナ */
+.post-detail-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'sans-serif';
+}
+
+/* メインカード */
+.post-main-card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 168, 255, 0.1);
+  overflow: hidden;
+  margin-bottom: 30px;
+  border: 1px solid #e1f5fe;
+}
+
+.post-header {
+  background: #f0f9ff;
+  padding: 25px;
+  border-bottom: 2px solid #e1f5fe;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #00a8ff;
+  margin-bottom: 10px;
+}
+
+.post-title {
+  color: #333;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* コンテンツ部分 */
+.post-content {
+  padding: 25px;
+}
+
+.post-image-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.post-main-image {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.post-body {
+  line-height: 1.8;
+  color: #444;
+  white-space: pre-wrap;
+}
+
+/* ボタン類 */
+.post-show-action {
+  padding: 15px 25px;
+  background: #fafafa;
+  text-align: right;
+  border-top: 1px solid #eee;
+}
+
+.btn-edit { color: #00a8ff; text-decoration: none; margin-right: 15px; font-weight: bold; }
+.btn-delete { color: #ff6b6b; text-decoration: none; font-weight: bold; }
+
+/* コメントセクション */
+.comment-section {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e1f5fe;
+}
+
+.section-title {
+  color: #333;
+  border-bottom: 2px solid #00a8ff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.comment-item {
+  padding: 15px;
+  border-bottom: 1px solid #f0f9ff;
+}
+
+.comment-user {
+  font-weight: bold;
+  color: #00a8ff;
+  font-size: 0.9rem;
+}
+
+.comment-body {
+  margin-top: 5px;
+  color: #555;
+}
+
+.comment-delete-link a {
+  font-size: 0.8rem;
+  color: #ffb3b3;
+  text-decoration: none;
+}
+
+/* フォーム */
+.comment-form-wrapper {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f0f9ff;
+  border-radius: 10px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e1f5fe;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.btn-submit {
+  background: #00a8ff;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-submit:hover { background: #0086cc; }
+
+.back-link-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.back-link {
+  color: #00a8ff;
+  text-decoration: none;
+}
