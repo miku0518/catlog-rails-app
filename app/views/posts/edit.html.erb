@@ -1,39 +1,36 @@
-<h1>投稿を編集</h1>
+<div class="form-container">
+  <h1 class="form-title">投稿を編集</h1>
 
-<%= render "error_messages", object: @post %>
+  <%= form_with model: @post, local: true, class: "custom-form" do |f| %>
 
-<%= form_with model: @post, local: true do |f| %>
+    <% if @post.image.attached? %>
+      <div class="current-image-section">
+        <p class="section-label">現在の画像</p>
+        <%= image_tag @post.image, class: "preview-img" %>
+      </div>
+    <% end %>
 
-  <% if @post.image.attached? %>
-    <div>
-      <p>現在の画像</p>
-      <%= image_tag @post.image, style: "max-width: 300px;" %>
-    <div>
-
-      <%= check_box_tag :remove_image, "1" %>
-      <%= label_tag :remove_image, "画像を削除する" %>
+    <div class="form-group">
+      <%= f.label :image, "画像を変更", class: "form-label" %>
+      <%= f.file_field :image, class: "file-input" %>
     </div>
-  </div>
-<% end %>
 
-  <div>
-    <%= f.label :image, "画像を変更" %><br>
-    <%= f.file_field :image %>
-  </div>
+    <div class="form-group">
+      <%= f.label :title, "タイトル", class: "form-label" %>
+      <%= f.text_field :title, required: true, class: "text-input", placeholder: "タイトルを入力してください" %>
+    </div>
 
-  <div>
-    <%= f.label :title, "タイトル" %><br>
-    <%= f.text_field :title, required: true %>
-  </div>
+    <div class="form-group">
+      <%= f.label :body, "本文", class: "form-label" %>
+      <%= f.text_area :body, class: "textarea-input", placeholder: "本文を入力してください" %>
+    </div>
 
-  <div>
-    <%= f.label :body, "本文" %><br>
-    <%= f.text_area :body %>
-  </div>
+    <div class="form-actions">
+      <%= f.submit "更新する", class: "submit-btn" %>
+    </div>
+  <% end %>
 
-  <div>
-    <%= f.submit "更新する" %>
+  <div class="back-link-wrapper">
+    <%= link_to "← 詳細に戻る", @post, class: "back-link-post" %>
   </div>
-<% end %>
-
-<%= link_to "← 詳細に戻る", @post %>
+</div>
