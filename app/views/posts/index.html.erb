@@ -13,9 +13,9 @@
 
       <!-- 文字部分 -->
       <div class="post-card">
-        <h2 class="card-title">
-          <%= link_to post.title, post_path(post) %>
-        </h2>
+        <div class="card-title">
+          <%= link_to truncate(post.title, length: 15, omission: '...'), post_path(post) %>
+        </div>
         <p>投稿者：<%= post.user.login_name %></p>
         <p><span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:4px;">
            chat_bubble

@@ -353,7 +353,7 @@ main.content {
 }
 
 .card-title {
-  font-size: 25px;
+  font-size: 15px;
   margin-bottom: 15px;
 }
 
@@ -488,7 +488,7 @@ main.content {
 
 .form-input:focus {
   outline: none;
-  border-color: #00a8ff;
+  border-color: #71b7d9;
   box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.15);
 }
 
@@ -922,11 +922,6 @@ main.content {
   margin-bottom: 30px;
 }
 
-/* 各入力項目のまとまり */
-.form-group {
-  margin-bottom: 20px;
-}
-
 .form-label {
   display: block;
   font-weight: bold;
@@ -992,4 +987,64 @@ main.content {
 
 .submit-btn:hover {
   background-color: #0086cc;
+}
+
+
+/* 新規投稿ページ */
+.post-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* フォームの土台（白カード） */
+.form-card {
+  background: #fff;
+  border: 1px solid #e0f2f7; /* 薄い水色 */
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 168, 255, 0.05);
+}
+
+/* 各入力項目の間隔 */
+.form-group {
+  margin-bottom: 25px;
+}
+
+/* 入力欄にフォーカスした時 */
+.text-input:focus, 
+.textarea-input:focus, 
+.file-input:focus {
+  outline: none;
+  border-color: #00a8ff;
+  box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.1);
+}
+
+/* 投稿ボタン（水色） */
+.btn-primary {
+  background-color: #00a8ff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0086cc;
+}
+
+/* キャンセルボタン（枠線のみ） */
+.btn-outline {
+  color: #00a8ff;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 30px;
 }
