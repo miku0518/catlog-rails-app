@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   sessions: "users/sessions",       # ログイン
   registrations: "users/registrations" # 新規登録
 }
+
+post '/guest_sign_in', to: 'guest_sessions#create' #ゲストログイン
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

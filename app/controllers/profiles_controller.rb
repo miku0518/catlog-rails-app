@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!
-
+  
   def create
     @profile = current_user.build_profile(profile_params)
     if @profile.save
