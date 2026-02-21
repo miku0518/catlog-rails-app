@@ -3,6 +3,12 @@
     <%# ヘッダー %>
     <div class="profile-edit-header">
       <h2>プロフィール設定</h2>
+        <%# ゲストへの案内メッセージを追加 %>
+      <% if current_user.email == 'guest@example.com' %>
+        <p class="guest-alert">
+          ※ゲストユーザーは閲覧専用です。変更は反映されません。
+        </p>
+      <% end %>
     </div>
 
     <div class="profile-body">
@@ -16,6 +22,8 @@
           </ul>
         </div>
       <% end %>
+    
+    <% is_guest = (current_user.email == 'guest@example.com') %>
 
       <%# 編集フォーム %>
       <%= form_with model: @profile, url: @profile.persisted? ? profile_path(@profile) : profiles_path, local: true, class: "profile-form" do |f| %>
@@ -29,34 +37,42 @@
               <%= image_tag "default_cat_blue.png", class: "profile-avatar-form" %>
             <% end %>
           </div>
-          <div class="file-input-wrapper">
-            <%= f.label :avatar, "写真を変更する", class: "file-label" %>
-            <%= f.file_field :avatar, class: "file-field" %>
-          </div>
+
+          <% unless is_guest %>
+            <div class="file-input-wrapper">
+              <%= f.label :avatar, "写真を変更する", class: "file-label" %>
+              <%= f.file_field :avatar, class: "file-field" %>
+            </div>
+          <% end %>
         </div>
 
         <%# 入力フィールド %>
         <div class="form-group">
           <%= f.label :profile_name, "プロフィール名" %>
-          <%= f.text_field :profile_name, placeholder: "お名前を入力", class: "form-input" %>
+          <%= f.text_field :profile_name, placeholder: "お名前を入力", class: "form-input", readonly: is_guest %>
         </div>
 
         <div class="form-group">
           <%= f.label :introduction, "自己紹介" %>
-          <%= f.text_area :introduction, rows: 4, placeholder: "猫との暮らしについて教えてください", class: "form-input" %>
+          <%= f.text_area :introduction, rows: 4, placeholder: "猫との暮らしについて教えてください", class: "form-input" , readonly: is_guest %>
         </div>
 
         <div class="form-group">
           <%= f.label :cat_count, "一緒に暮らしている猫の数" %>
           <div class="number-input-wrapper">
-            <%= f.number_field :cat_count, min: 0, class: "form-input number-field" %>
+            <%= f.number_field :cat_count, min: 0, class: "form-input number-field", readonly: is_guest %>
             <span class="unit">匹</span>
           </div>
         </div>
 
         <%# ボタン・リンク類 %>
         <div class="actions">
-          <%= f.submit "更新する", class: "btn-primary" %>
+          <% if is_guest %>
+            <%= f.submit "更新不可（ゲスト）", class: "btn-primary btn-disabled", disabled: true %>
+          <% else %>
+            <%= f.submit "更新する", class: "btn-primary" %>
+          <% end %>
+
           <div class="account-back-link">
             <%= link_to "マイページに戻る", account_path %>
           </div>

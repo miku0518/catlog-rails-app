@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user! #ログインしないとコメントできない
 
   def create
     @post = Post.find(params[:post_id])

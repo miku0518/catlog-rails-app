@@ -1048,3 +1048,56 @@ main.content {
   text-align: center;
   margin-top: 30px;
 }
+
+/* ゲストログインボタンの基本スタイル */
+.btn-guest {
+  background-color: #ffffff;    /* 背景は白 */
+  color: #3498db;              /* 文字は水色 */
+  border: 2px solid #3498db;   /* 水色の枠線 */
+  padding: 6px 16px;           /* 上下左右の余白 */
+  border-radius: 5px;         /* 角を丸くして柔らかい印象に */
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;   /* 変化を滑らかにする */
+}
+
+/* マウスを乗せた時（ホバー）の動き */
+.btn-guest:hover {
+  background-color: #3498db;    /* 背景を水色に */
+  color: #ffffff;              /* 文字を白に */
+  transform: translateY(-2px); /* 少し上に浮き上がらせる */
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3); /* 柔らかい影 */
+}
+
+/* クリックした瞬間 */
+.btn-guest:active {
+  transform: translateY(0);
+}
+
+/* ゲストユーザーへの警告用メッセージ */
+.guest-alert {
+  color: #856404;           /* 濃い茶色 */
+  background-color: #fff3cd; /* 薄い黄色 */
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  border: 1px solid #ffeeba; /* 枠線を足すとより警告っぽくなります */
+  font-weight: bold;
+}
+
+/* 共通：無効化されたボタンのスタイル */
+.btn-disabled {
+  background-color: #cccccc; /* グレー */
+  border-color: #bbbbbb;     /* 少し濃いグレーの枠線 */
+  color: #666666;           /* 文字も少し薄く */
+  cursor: not-allowed;      /* 禁止マークのカーソル */
+  box-shadow: none;         /* 影を消して立体感をなくす */
+}
+
+/* ホバーしても色が変わらないように固定 */
+.btn-disabled:hover {
+  background-color: #cccccc;
+  transform: none;          /* 浮き上がるアニメーションなどを止める */
+}
