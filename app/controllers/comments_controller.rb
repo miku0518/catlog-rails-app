@@ -6,13 +6,13 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if@comment.save #これでコメントがDBに保存される
-      redirect_to @post
+      redirect_to @post, notice: "コメントを投稿しました"
     else
-      redirect_to @post
+      redirect_to @post, alert: "コメントの投稿に失敗しました"
     end
   end
 
-    def destroy
+  def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     if @comment.user == current_user

@@ -4,14 +4,14 @@ class LikesController < ApplicationController
   def create
     # すでにいいねしていなければ作る
     @post.likes.find_or_create_by(user: current_user)
-    redirect_to @post
+    redirect_back fallback_location: root_path #今いいねを押したそのページ
   end
 
   def destroy
     # いいねを削除
     like = @post.likes.find_by(user: current_user)
     like&.destroy
-    redirect_to @post
+    redirect_back fallback_location: root_path
   end
 
   private

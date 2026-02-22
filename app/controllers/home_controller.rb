@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.includes(:user).order(created_at: :desc).limit(10)
+   @posts = Post.all.order(created_at: :desc).page(params[:page]).per(10)
   end
 end

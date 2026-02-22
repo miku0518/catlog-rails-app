@@ -23,6 +23,6 @@ post '/guest_sign_in', to: 'guest_sessions#create' #ゲストログイン
   resources :profiles, only: [:edit, :update, :create]
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
      resources :comments, only: [:create, :destroy]  #ネスト
-     resource  :likes, only: [:create, :destroy]     #ネスト
+     resource  :like, only: [:create, :destroy]     #ネスト
   end
 end
