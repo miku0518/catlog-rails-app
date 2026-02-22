@@ -4,7 +4,7 @@
     <div class="post-header">
       <div class="post-meta">
         <span class="post-author">投稿者：<%= @post.user.login_name %></span>
-        <span class="post-date"><%= @post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+        <span class="post-date"><%= @post.created_at.strftime("%Y/%-m/%-d %-H:%M") %></span>
       </div>
       <h1 class="post-title"><%= @post.title %></h1>
     </div>
@@ -29,10 +29,20 @@
     <% end %>
   </div>
 
-  <%# コメントセクション %>
-  <div class="comment-section">
-    <h3 class="section-title">
-      <i class="fas fa-comments"></i> コメント <span class="comment-count"><%= @post.comments.count %></span>
+  <%# コメントセクションの見出し %>
+    <div class="comment-section">
+      <h3 class="section-title">
+        <div class="stat-group">
+          <i class="fas fa-comments"></i>
+          <span class="label">コメント</span>
+          <span class="comment-count"><%= @post.comments.count %></span>
+        </div>
+
+      <%# いいね数表示（既存のクラスを使い回し） %>
+      <div class="like-btn liked">
+        <span class="material-symbols-outlined icon-filled">favorite</span>
+        <span class="count-text"><%= @post.likes.count %></span>
+      </div>
     </h3>
 
     <%# コメント一覧 %>

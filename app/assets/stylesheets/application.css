@@ -1101,3 +1101,171 @@ main.content {
   background-color: #cccccc;
   transform: none;          /* 浮き上がるアニメーションなどを止める */
 }
+
+
+/* アイコンと数字を並べるための共通設定 */
+.like-btn, .stat-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+}
+
+.icon-small {
+  font-size: 18px !important;
+  vertical-align: middle;
+}
+
+.count-text {
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* アイコンと数字を並べるための共通設定 */
+.like-btn, .stat-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+}
+
+.icon-small {
+  font-size: 18px !important;
+  vertical-align: middle;
+}
+
+.count-text {
+  font-size: 14px;
+  color: inherit; /* 親要素の色（青やグレー）に合わせる */
+  margin-left: 4px;
+}
+
+/* ★追加：見出しの中にある時だけ数字を大きく・太くする */
+.section-title .count-text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* いいねボタン専用（ホバーで水色へ） */
+.like-btn:hover {
+  color: #de69a5;
+  transform: scale(1.1);
+}
+
+/* いいね済みの色（青）と塗りつぶし */
+.like-btn.liked {
+  color: #e97abd ;
+}
+
+.like-btn.liked .material-symbols-outlined {
+  /* variationに修正 + importantで確実に適用 */
+  font-variation-settings: 'FILL' 1 !important; 
+}
+
+.like-section {
+  margin-left: 20px;
+}
+
+/* 未ログイン時 */
+.like-btn.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+
+/* 詳細画面専用のレイアウト */
+.post-stats-show {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* 右寄せ */
+  gap: 24px;                 /* アイコン同士の間隔 */
+  padding: 15px 0;
+  margin: 20px 0;
+  border-top: 1px solid #eee;    /* 上の区切り線 */
+  border-bottom: 1px solid #eee; /* 下の区切り線 */
+}
+
+/* 詳細画面用の大きいアイコン */
+.icon-detail {
+  font-size: 28px !important;
+  vertical-align: middle;
+}
+
+/* 詳細画面用の大きい数字 */
+.count-detail {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+  margin-left: 4px;
+}
+
+/* 見出し全体のレイアウト */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* コメント数といいね数の間の隙間 */
+  margin-bottom: 1.5rem;
+}
+
+/* アイコンと数字のグループ */
+.stat-group {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* アイコンと数字の間の隙間 */
+}
+
+/* 数字の微調整 */
+.comment-count, .like-count {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.label {
+  margin-right: 4px;
+}
+
+/* ページネーション全体を中央寄せ */
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  font-family: sans-serif;
+}
+
+.pagination-wrapper nav {
+  display: flex;
+  gap: 5px; /* ボタン同士の隙間 */
+}
+
+/* すべてのボタン（リンクと現在の数字）の共通スタイル */
+.pagination-wrapper a,
+.pagination-wrapper .current,
+.pagination-wrapper .gap {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #add8e6; /* 薄い水色の枠線 */
+  border-radius: 4px;
+  background-color: #ffffff; /* 基本は白 */
+  color: #0095d9; /* 文字は水色 */
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+/* マウスを乗せたとき（ホバー） */
+.pagination-wrapper a:hover {
+  background-color: #f0faff; /* 非常に薄い水色 */
+  border-color: #0095d9;
+}
+
+/* 現在表示しているページのスタイル */
+.pagination-wrapper .current {
+  background-color: #0095d9; /* 水色で塗りつぶし */
+  color: #ffffff;           /* 文字は白 */
+  border-color: #0095d9;
+  font-weight: bold;
+}
+
+/* 「...」の部分 */
+.pagination-wrapper .gap {
+  color: #ccc;
+  border: none;
+}
