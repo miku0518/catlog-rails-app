@@ -31,7 +31,7 @@
 
   <%# コメントセクションの見出し %>
     <div class="comment-section">
-      <h3 class="section-title">
+      <div class="section-title">
         <div class="stat-group">
           <i class="fas fa-comments"></i>
           <span class="label">コメント</span>
@@ -43,7 +43,7 @@
         <span class="material-symbols-outlined icon-filled">favorite</span>
         <span class="count-text"><%= @post.likes.count %></span>
       </div>
-    </h3>
+    </div>
 
     <%# コメント一覧 %>
     <div class="comments-list">
