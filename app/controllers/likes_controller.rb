@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   #どっちのアクションにも
-  before_action :set_postの内容をしてほしい時は、onlyはかかない
+  before_action :set_post #set_postの内容をしてほしい時は、onlyはかかない
 
   def create
     #現在ログインしているユーザーが、その投稿にいいねをしているのか見つけて、ない場合は作る
