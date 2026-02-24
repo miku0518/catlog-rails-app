@@ -22,30 +22,9 @@
             <span class="material-symbols-outlined icon-small">chat_bubble</span>
             <span class="count-text"><%= post.comments.count %></span>
           </div>
-
-          <%# いいねボタン（Turbo Frameで囲んでリロードなしにする） %>
-          <%= turbo_frame_tag dom_id(post, :like) do %>
-            <div class="like-section">
-              <% if user_signed_in? %>
-                <% if post.liked_by?(current_user) %>
-                  <%= link_to [post, :like], data: { turbo_method: :delete }, class: "like-btn liked" do %>
-                    <span class="material-symbols-outlined icon-small">favorite</span>
-                    <span class="count-text"><%= post.likes.count %></span>
-                  <% end %>
-                <% else %>
-                  <%= link_to [post, :like], data: { turbo_method: :post }, class: "like-btn" do %>
-                    <span class="material-symbols-outlined icon-small">favorite</span>
-                    <span class="count-text"><%= post.likes.count %></span>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <div class="like-btn disabled">
-                  <span class="material-symbols-outlined icon-small">favorite</span>
-                  <span class="count-text"><%= post.likes.count %></span>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+          
+          <%# --- いいね機能の部品 --- %>
+          <%= render "likes/like_button", post: post %>
         </div>
         <%# ------------------------------------------ %>
 
