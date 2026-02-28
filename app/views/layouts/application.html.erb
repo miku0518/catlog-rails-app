@@ -47,7 +47,7 @@
 
   <!-- プロフィールアイコン -->
   <div style="margin-left:10px;">
-    <% if current_user.profile&.avatar&.attached? && current_user.profile.avatar.persisted? %> #ログインしてるユーザーがプロフィールがあって、画像が選ばれていて、かつその画像がちゃんと保存済みの完成品である時だけ、画像を出す
+    <% if current_user.profile&.avatar&.attached? && current_user.profile.avatar.persisted? %>
       <%= link_to account_path do %>
         <%= image_tag url_for(current_user.profile.avatar), class: "header-profile-icon", style: "width:40px; height:40px; border-radius:50%;" %>
       <% end %>
