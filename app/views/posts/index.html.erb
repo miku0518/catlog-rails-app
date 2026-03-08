@@ -16,9 +16,9 @@
         <p>投稿者：<%= post.user.login_name %></p>
 
         <%# --- コメントといいねを横並びにするエリア --- %>
-        <div class="flex items-center justify-end gap-5 my-1">
+        <div class="post-meta-area">
           <%# コメント数表示 %>
-          <div class="flex items-center text-gray-600">
+          <div class= "comment-status">
             <span class="material-symbols-outlined icon-small">chat_bubble</span>
             <span class="count-text"><%= post.comments.count %></span>
           </div>
@@ -28,7 +28,10 @@
         </div>
         <%# ------------------------------------------ %>
 
-        <p class="post-date"><%= post.created_at.strftime("%Y/%-m/%-d %-H:%M") %></p>
+        <p class="post-date">
+        <%= post.created_at.strftime("%Y/%-m/%-d %-H:%M") %>
+        </p>
+        
         <div class="post-actions">
           <%= link_to "続きを読む", post_path(post), class: "btn btn-outline btn-info" %>
         </div>
