@@ -10,9 +10,11 @@
 
 <p class="headline">最新の投稿</p>
 
-<div class="post-list flex flex-wrap justify-center gap-6">
+<%# 1. index-post-list クラスを追加してCSSを共通化します %>
+<div class="post-list index-post-list">
   <% @posts.each do |post| %>
-    <div class="card bg-white shadow-md rounded-lg overflow-hidden w-80">
+    <%# 2. post-card クラスを追加します %>
+    <div class="card">
       
       <%# --- 画像エリア --- %>
       <div class="post-image-wrapper">
@@ -24,19 +26,20 @@
       </div>
 
       <%# --- コンテンツエリア --- %>
-      <div class="card-body p-4">
-        <div class="card-title font-bold text-lg mb-1">
+       <div class="post-card">
+        <div class="card-title">
           <%= link_to truncate(post.title, length: 15, omission: '...'), post_path(post), class: "hover:text-blue-500" %>
         </div>
         
         <p class="text-sm text-gray-500">投稿者：<%= post.user.login_name %></p>
 
         <%# --- アイコン（コメント・いいね）エリア --- %>
-        <div class="flex items-center justify-end gap-6 my-3 border-b border-gray-100 pb-2">
-          <%# コメント数 %>
-          <div class="flex items-center text-gray-600">
-            <span class="material-symbols-outlined" style="font-size:18px; margin-right:4px;">chat_bubble</span>
-            <span style="font-size: 14px;"><%= post.comments.count %></span>
+        <%# ここはCSSで右寄せ（justify-content: flex-end）になります %>
+        <div class="post-meta-area">
+          <div class="comment-status">
+            <span class="material-symbols-outlined icon-small">chat_bubble</span>
+            <%# style ではなく class="count-text" に修正しました %>
+            <span class="count-text"><%= post.comments.count %></span>
           </div>
 
           <%# いいねボタン部品 %>
@@ -44,9 +47,12 @@
         </div>
 
         <%# --- 日付と詳細ボタン --- %>
-        <p class="text-xs text-gray-400 mb-3"><%= post.created_at.strftime("%Y/%-m/%-d %-H:%M") %></p>
+        <p class="post-date">
+          <%= post.created_at.strftime("%Y/%-m/%-d %-H:%M") %>
+        </p>
         
-        <div class="card-actions flex justify-end">
+        <%# flex justify-end を残しておけば、ボタンも右に寄ります %>
+        <div class="post-actions">
           <%= link_to "続きを読む", post_path(post), class: "btn btn-outline btn-info btn-sm" %>
         </div>
       </div>

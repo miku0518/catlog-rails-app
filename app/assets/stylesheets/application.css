@@ -68,7 +68,7 @@
 
 /* 背景画像 */
 main.content {
-  background-image: url('/assets/background.png');
+  background-image: var(--bg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -272,9 +272,21 @@ main.content {
   min-height: 470px;
 }
 
+/* 1. カード全体の並び（上から下へ） */
+
 .index-post-list .post-card {
-  padding-left: 1.5rem;  /* 左の余白を増やすことで文字を右に寄せる */
+  padding: 20px;
   padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-meta-area {
+  display: flex;
+  flex-direction: row;    /* ★横に並べる */
+  align-items: center;    /* アイコンと数字の上下中央を揃える */
+  margin: 10px 0;
+  padding-right: 5px;     /* 右端に少し余裕を持たせる */
 }
 
 /* 投稿するボタン */
@@ -297,6 +309,8 @@ main.content {
 .post-actions {
   padding-top: 10px;
   padding-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* ログアウトボタン */
@@ -315,6 +329,20 @@ main.content {
 .log-out-action:hover {
   background-color: #0284c7;      /* ホバーで塗りつぶし */
   color: white;                   /* 文字色を白に */
+}
+
+.account-actions {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-start; /* これで「左寄せ」に固定されます */
+  padding-left: 20px;         /* 左側の文字と縦のラインを揃えるための余白 */
+  margin-top: 35px;
+  padding-left: 40px;
 }
 
 .account-edit-btn {
@@ -1100,24 +1128,6 @@ main.content {
 .btn-disabled:hover {
   background-color: #cccccc;
   transform: none;          /* 浮き上がるアニメーションなどを止める */
-}
-
-
-/* アイコンと数字を並べるための共通設定 */
-.like-btn, .stat-item {
-  display: flex;
-  align-items: center;
-  text-decoration: none !important;
-}
-
-.icon-small {
-  font-size: 18px !important;
-  vertical-align: middle;
-}
-
-.count-text {
-  font-size: 14px;
-  color: #666;
 }
 
 

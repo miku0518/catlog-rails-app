@@ -9,7 +9,7 @@
       <p class="account-info"><strong>メールアドレス：</strong> <%= @user.email %></p>
       <p class="account-info"><strong>パスワード：</strong> *********</p>
 
-      <div class="card-actions justify-end">
+      <div class="account-actions">
         <%= link_to "アカウント編集（メール / パスワード）", edit_user_registration_path, class: "account-edit-btn" %>
       </div>
     </div>
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-  <div class="card-actions-profile justify-end">
+  <div class="profile-actions">
     <p><%= link_to "プロフィール編集", edit_profile_path(current_user),  class: "account-edit-btn" %></p>
   </div>
 </div>

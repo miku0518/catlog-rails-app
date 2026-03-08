@@ -73,9 +73,10 @@
 </header>
   <%= render 'layouts/flash' %>
     <!-- ページごとのコンテンツ -->
-    <main class="content">
-      <%= yield %>
-    </main>
+      <main class="content bg-base-100 min-h-screen" 
+        style="--bg: url('<%= asset_path('background.png') %>');">
+    <%= yield %>
+  </main>
   </div>
 
   <div class="drawer-side" style="z-index: 999;">
