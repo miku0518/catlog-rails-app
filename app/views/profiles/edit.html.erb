@@ -26,7 +26,7 @@
     <% is_guest = (current_user.email == 'guest@example.com') %>
 
       <%# 編集フォーム %>
-      <%= form_with model: @profile, url: @profile.persisted? ? profile_path(@profile) : profiles_path, local: true, class: "profile-form" do |f| %>
+      <%= form_with model: @profile, url: @profile.persisted? ? profile_path(@profile) : profile_path, local: true, class: "profile-form" do |f| %>
         
         <%# アバター編集 %>
         <div class="avatar-upload-section">
