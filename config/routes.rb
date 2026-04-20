@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  get "accounts/show"
-  devise_for :users, controllers: {
-  sessions: "users/sessions",       # ログイン
-  registrations: "users/registrations" # 新規登録
-}
+  devise_for :users
 
-post '/guest_sign_in', to: 'guest_sessions#create' #ゲストログイン
+  post '/guest_sign_in', to: 'guest_sessions#create' #ゲストログイン
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
@@ -19,10 +15,11 @@ post '/guest_sign_in', to: 'guest_sessions#create' #ゲストログイン
 
   # Defines the root path route ("/")
   root "home#index"
+  #アカウントページを表示する
   get "account", to: "users#account", as: :account
-  resources :profiles, only: [:edit, :update, :create]
+  resource :profile, only: [:edit, :update, :create]
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-     resources :comments, only: [:create, :destroy]  #ネスト
-     resource  :like, only: [:create, :destroy]     #ネスト
+  resources :comments, only: [:create, :destroy]  #ネスト→どの投稿に対するコメントか
+  resource  :like, only: [:create, :destroy]     #ネスト→1つの投稿に「自分のいいね」は1つ
   end
 end
