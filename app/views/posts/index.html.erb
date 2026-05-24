@@ -1,43 +1,8 @@
-<p class="headline">投稿一覧</p> <div class="post-list index-post-list">
-  <% @posts.each do |post| %>
-    <div class="card">
-      <div class="post-image-wrapper">
-        <% if post.image.attached? %>
-          <%= image_tag post.image %>
-        <% else %>
-          <%= image_tag "no_image.png", alt: "No image" %>
-        <% end %>
-      </div>
+<%= render 'shared/search_form' %>
+<p class="headline">投稿一覧</p> 
 
-      <div class="post-card">
-        <div class="card-title">
-          <%= link_to truncate(post.title, length: 15, omission: '...'), post_path(post) %>
-        </div>
-        <p>投稿者：<%= post.user.login_name %></p>
-
-        <%# --- コメントといいねを横並びにするエリア --- %>
-        <div class="post-meta-area">
-          <%# コメント数表示 %>
-          <div class= "comment-status">
-            <span class="material-symbols-outlined icon-small">chat_bubble</span>
-            <span class="count-text"><%= post.comments.count %></span>
-          </div>
-          
-          <%# --- いいね機能の部品 --- %>
-          <%= render "likes/like_button", post: post %>
-        </div>
-        <%# ------------------------------------------ %>
-
-        <p class="post-date">
-        <%= post.created_at.strftime("%Y/%-m/%-d %-H:%M") %>
-        </p>
-        
-        <div class="post-actions">
-          <%= link_to "続きを読む", post_path(post), class: "btn btn-outline btn-info" %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div class="post-list index-post-list">
+  <%= render @posts %>
 </div>
 
 <div class="pagination-wrapper">

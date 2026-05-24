@@ -1279,3 +1279,135 @@ main.content {
   color: #ccc;
   border: none;
 }
+
+/* 全体のコンテナを中央に寄せる */
+.search-container {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* 1. 見出し：ポップな太文字の水色で真ん中寄せ */
+.search-result-title {
+  text-align: center;
+  color: #38bdf8;        /* 優しい水色（パステルブルー） */
+  font-weight: 800;      /* 可愛い太文字 */
+  font-size: 1.75rem;    /* 大きめサイズ */
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 2. 件数テキスト：優しいグレーで真ん中寄せ */
+.search-count-text {
+  text-align: center;
+  color: #64748b;        /* 落ち着いたグレー */
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+/* 3. ページネーション：まるごと画面の真ん中へ */
+.search-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* 4. 結果がなかった時のメッセージ：真ん中寄せで白と水色に合うグレー */
+.search-no-result {
+  text-align: center;
+  color: #94a3b8;        /* 明るめの優しいグレー */
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-top: 3rem;
+  line-height: 1.6;      /* 改行したときに見やすい幅 */
+}
+
+/* 1. 検索窓全体を画面の真ん中に寄せる */
+.search-form-container {
+  display: flex;
+  justify-content: center; /* 横方向の真ん中寄せ */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+/* フォームの横幅をちょうどいいサイズに制限して中央寄せ */
+.search-form {
+  display: flex;
+  gap: 0.5rem;             /* 入力欄とボタンのすき間 */
+  width: 100%;
+  max-width: 500px;        /* 広がりすぎないように制限 */
+}
+
+/* 2. 入力部分：白ベースに、優しい水色のフチ線 */
+.search-input {
+  flex: 1;                 /* 枠いっぱいに広げる */
+  background-color: #ffffff; /* 清潔感のある白 */
+  border: 2px solid #bae6fd; /* 薄い水色のフチ */
+  border-radius: 9999px;   /* ぷっくり丸いカプセル型に */
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  color: #1e293b;
+  outline: none;           /* クリックした時の黒い線を消す */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* 入力欄をクリックした（フォーカスした）とき */
+.search-input:focus {
+  border-color: #38bdf8;   /* フチの水色を少し濃く */
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2); /* ふんわり水色の影を光らせる */
+}
+
+/* 3. 検索ボタン：水色ベースの可愛い丸文字ボタン */
+.search-submit-btn {
+  background-color: #38bdf8; /* 明るい水色 */
+  color: #ffffff;            /* 白い文字 */
+  border: none;
+  border-radius: 9999px;   /* ボタンもぷっくり丸く */
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* ボタンにマウスを乗せたとき */
+.search-submit-btn:hover {
+  background-color: #0284c7;
+}
+
+/* ボタンをクリックした瞬間 */
+.search-submit-btn:active {
+  transform: scale(0.95);
+}
+
+/* ボタンを真ん中に配置する枠 */
+.search-back-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* 戻るボタン：白ベースに、水色の文字とフチ線の丸ボタン */
+.btn-back {
+  display: inline-block;
+  background-color: #ffffff; /* 清潔感のある白 */
+  color: #38bdf8;            /* 優しい水色テキスト */
+  border: 2px solid #38bdf8; /* 水色のフチ線 */
+  border-radius: 9999px;     /* ぷっくり丸いカプセル型 */
+  padding: 0.6rem 2rem;      /* 少し押しやすい大きさに */
+  font-weight: 700;
+  text-decoration: none;     /* 下線を消す */
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(56, 189, 248, 0.1);
+}
+
+.btn-back:hover {
+  background-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
+}

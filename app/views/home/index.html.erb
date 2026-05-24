@@ -1,3 +1,4 @@
+<%= render 'shared/search_form' %>
 <div class="container">
   <div class="top-card">
     <span class="badge">～猫好きのコミュニティへようこそ～</span>
@@ -7,9 +8,7 @@
     </p>
   </div>
 </div>
-
 <p class="headline">最新の投稿</p>
-
 <%# 1. index-post-list クラスを追加してCSSを共通化します %>
 <div class="post-list index-post-list">
   <% @posts.each do |post| %>

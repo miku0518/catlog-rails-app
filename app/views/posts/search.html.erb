@@ -1,0 +1,21 @@
+<div class="search-container">
+  <h1 class="search-result-title">「<%= params[:search_word] %>」の検索結果</h1>
+
+  <% if @posts.present? %>
+    <p class="search-count-text"><%= @posts.total_count %> 件の猫ちゃん投稿が見つかりました！</p>
+    
+    <div class="post-list index-post-list">
+      <%= render @posts %>
+    </div>
+
+    <div class="search-pagination">
+      <%= paginate @posts %>
+    </div>
+  <% else %>
+    <p class="search-no-result">キーワードに一致する投稿が見つかりませんでした。別の言葉で探してみてね！</p>
+  <% end %>
+
+  <div class="search-back-actions">
+    <%= link_to "一覧に戻る", :back, class: "btn-back" %>
+  </div>
+</div>

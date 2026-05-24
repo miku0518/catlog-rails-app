@@ -9,7 +9,7 @@ class Post < ApplicationRecord
     likes.exists?(user_id: user.id)
   end
 
-  def self.search(search_word)
+  def self.search(search_word) #LIKEはSQLでは～を含むと言う意味
     Post.where(["title LIKE ? OR body LIKE ?", "%#{search_word}%", "%#{search_word}%"])
   end
 end
