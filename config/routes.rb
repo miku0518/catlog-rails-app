@@ -22,6 +22,9 @@ post '/guest_sign_in', to: 'guest_sessions#create' #ゲストログイン
   get "account", to: "users#account", as: :account
   resources :profiles, only: [:edit, :update, :create]
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get 'search'
+    end
      resources :comments, only: [:create, :destroy]  #ネスト
      resource  :like, only: [:create, :destroy]     #ネスト
   end

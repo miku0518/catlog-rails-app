@@ -1,0 +1,9 @@
+<div class="search-form-container">
+  <%= form_with url: search_posts_path, method: :get, local: true, class: "search-form" do |f| %>
+    <%= f.text_field :search_word, 
+                     value: params[:search_word], 
+                     placeholder: "キーワードを入力...", 
+                     class: "search-input" %>
+    <%= f.submit "検索", class: "search-submit-btn" %>
+  <% end %>
+</div>

@@ -43,6 +43,10 @@ class PostsController < ApplicationController
     redirect_to posts_path, alert: "投稿を削除しました", status: :see_other
   end
 
+  def search
+    @posts = Post.search(params[:search_word]).order(created_at: :desc).page(params[:page]).per(10)
+  end
+
   private
 
   def set_post
