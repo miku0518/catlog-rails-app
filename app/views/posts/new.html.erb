@@ -3,12 +3,13 @@
 
   <div class="form-card">
     <%= form_with model: @post, local: true do |f| %>
-      
-      <%# 画像選択 %>
+   <%# 【修正】画像選択（複数選択できるように変更！） %>
       <div class="form-group">
-        <%= f.label :image, "画像を選択", class: "form-label" %>
+        <%# :image から :images に変更 %>
+        <%= f.label :images, "画像を選択（複数選択可）", class: "form-label" %>
         <div class="file-input-wrapper">
-          <%= f.file_field :image, class: "file-input" %>
+          <%# :image から :images に変更し、multiple: true を追加！ %>
+          <%= f.file_field :images, multiple: true, class: "file-input" %>
         </div>
       </div>
 
