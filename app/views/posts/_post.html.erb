@@ -1,8 +1,7 @@
-<%# app/views/posts/_post.html.erb %>
 <div class="card">
   <div class="post-image-wrapper">
-    <% if post.image.attached? %>
-      <%= image_tag post.image %>
+    <% if post.images.attached? %>
+      <%= image_tag post.images.first%>
     <% else %>
       <%= image_tag "no_image.png", alt: "No image" %>
     <% end %>

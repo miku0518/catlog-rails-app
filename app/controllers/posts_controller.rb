@@ -27,8 +27,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    if params[:remove_image]
-      @post.image.purge
+    if params[:delete_image_ids]
+      @post.images.where(id: params[:delete_image_ids]).purge_all  
     end
 
     if @post.update(post_params)
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, images:[])
   end
 
   def correct_user

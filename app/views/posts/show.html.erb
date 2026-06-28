@@ -10,16 +10,35 @@
     </div>
 
     <div class="post-content">
-      <% if @post.image.attached? %>
-        <div class="post-image-wrapper">
-          <%= image_tag @post.image, class: "post-main-image" %>
-        </div>
-      <% end %>
-      
+      <% if @post.images.attached? %>
+        <%# 💡 クラス名に「custom-carousel」をしっかり付与します %>
+        <div class="post-image-wrapper custom-carousel">
+          <% @post.images.each_with_index do |image, index| %>
+            
+            <%# 1枚ずつの画像と矢印を囲む枠（開始） %>
+            <div id="slide-<%= index %>" class="custom-carousel-item">
+              
+              <%= image_tag image, class: "post-main-image" %>
+
+              <%# 矢印ボタンのエリア %>
+              <div class="custom-carousel-arrows">
+                <%# 前の画像へのリンク %>
+                <a href="#slide-<%= index == 0 ? @post.images.size - 1 : index - 1 %>" class="arrow-btn">❮</a>
+                
+                <%# 次の画像へのリンク %>
+                <a href="#slide-<%= index == @post.images.size - 1 ? 0 : index + 1 %>" class="arrow-btn">❯</a>
+              </div>
+              
+            </div> <%# 👈 custom-carousel-item を閉じます %>
+            
+          <% end %> <%# 👈 loop を閉じます %>
+        </div> <%# 👈 post-image-wrapper を閉じます %>
+      <% end %> <%# 👈 if文を閉じます %>
+
       <div class="post-body">
         <%= simple_format(@post.body) %>
       </div>
-    </div>
+    </div> <%# 👈 post-content を閉じます %>
 
     <% if @post.user == current_user %>
       <div class="post-show-action">
@@ -30,20 +49,20 @@
   </div>
 
   <%# コメントセクションの見出し %>
-    <div class="comment-section">
-      <div class="section-title">
-        <div class="stat-group">
-          <i class="fas fa-comments"></i>
-          <span class="label">コメント</span>
-          <span class="comment-count"><%= @post.comments.count %></span>
-        </div>
+  <div class="comment-section">
+    <div class="section-title">
+      <div class="stat-group">
+        <i class="fas fa-comments"></i>
+        <span class="label">コメント</span>
+        <span class="comment-count"><%= @post.comments.count %></span>
+      </div>
 
       <%# いいね数表示（既存のクラスを使い回し） %>
-        <div class="like-btn liked">
-          <span class="material-symbols-outlined icon-filled">favorite</span>
-          <span class="count-text"><%= @post.likes.count %></span>
-        </div>
-     </div>
+      <div class="like-btn liked">
+        <span class="material-symbols-outlined icon-filled">favorite</span>
+        <span class="count-text"><%= @post.likes.count %></span>
+      </div>
+    </div>
 
     <%# コメント一覧 %>
     <div class="comments-list">
